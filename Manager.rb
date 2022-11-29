@@ -1,15 +1,13 @@
 require_relative "employee.rb"
 
 class Manager < Employee
-    def initialize(name, salary, title, manager)     #maybe salary
+    def initialize(name, salary, title, manager)
         super
         @employees = []
     end
 
     def add_employee(employee)
-        if employee.manager == self
-            @employees << employee
-        end
+        @employees << employee
     end
 
     def bonus(multiplier)
@@ -20,8 +18,8 @@ class Manager < Employee
         subs_sal * multiplier
     end
 
-    # ned = Employee.new("ned", 1000000, "founder", nil)
-    # darren = Employee.new("darren", 78000, "TA Manager", ned)
+    # ned = Manager.new("ned", 1000000, "founder", nil)
+    # darren = Manager.new("darren", 78000, "TA Manager", ned)
     # shawna = Employee.new("shawna", 12000, "TA", darren)
     # david = Employee.new("david", 10000, "TA", darren)
 
