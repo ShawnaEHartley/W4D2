@@ -1,8 +1,6 @@
-require_relative "manager.rb"
-
 class Employee
 
-    attr_reader :manager
+    attr_reader :manager, :name, :salary
 
     def initialize(name, salary, title, manager)
         @name = name
@@ -13,9 +11,6 @@ class Employee
 
     def add_manager(manager)
         self.manager.add_employee(self)
-        # if employee.manager == self
-        #     @employees << employee
-        # end
     end
 
     def bonus(multiplier)
