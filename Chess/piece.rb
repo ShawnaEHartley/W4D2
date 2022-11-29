@@ -1,5 +1,6 @@
 class Piece
-    def initialize
+    
+    def initialize(name, player_color)
         
     end
 end
