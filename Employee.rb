@@ -1,10 +1,18 @@
 class Employee
-    def initialize(name, title)     #maybe include salary
+
+    attr_reader :manager
+
+    def initialize(name, salary, title, manager)     #maybe include salary
         @name = name
         @title = title
         @salary = salary
         @manager = manager
-        @bonus = @salary * multiplier
+    end
+
+    
+
+    def bonus(multiplier)
+        bonus = @salary * multiplier
     end
 
 end
