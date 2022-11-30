@@ -28,38 +28,53 @@ module Slideable
 
     def moves(current_pos, color)
         moves = []
-        HORIZONTAL_DIRS.each do |dir|
-            new_pos = current_pos
-            until !pos_valid?(new_pos)
-            new_pos = [(new_pos[0] + dir[0]), (new_pos[1] + dir[1])]
-            moves << new_pos
-            end
-        end
+        all_directions = HORIZONTAL_DIRS + DIAGONAL_DIRS
+        all_directions.each do |dir|
+            moves += grow_unblock_moves_in_dir(dir)
 
-        DIAGONAL_DIRS.each do |dir|
-            new_pos = current_pos
-            until !pos_valid?(new_pos)
-            new_pos = [(new_pos[0] + dir[0]), (new_pos[1] + dir[1])]
-            moves << new_pos
-            end
         end
-
+        
+        
         return moves
     end
-
+    
     def pos_valid?(pos)
         row, col = pos
         return false if row <= 0 || row >= 7 || col <= 0 || col >= 7
         true    
     end
 
-
+    
+    # new_pos = current_pos
+    # until !pos_valid?(new_pos)
+    # new_pos = [(new_pos[0] + dir[0]), (new_pos[1] + dir[1])]
+    # moves << new_pos
+    # end
+    
+    # DIAGONAL_DIRS.each do |dir|
+    #     new_pos = current_pos
+    #     until !pos_valid?(new_pos)
+    #     new_pos = [(new_pos[0] + dir[0]), (new_pos[1] + dir[1])]
+    #     moves << new_pos
+    #     end
+    # end
+    
     private
     def move_dirs
         raise "Make move_dirs in subclass"
     end
 
     def grow_unblock_moves_in_dir(dx, dy)
+        moves = []
 
+        case 
+        when @board[pos].color != self.color
+            moves << pos
+        when @board[pos].empty?
+            moves << pos
+        when @board[pos].color == self.color || !@board.pos_valid?(pos)
+            break
+        end
+        return moves
     end
 end
