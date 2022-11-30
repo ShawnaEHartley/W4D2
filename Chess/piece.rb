@@ -1,15 +1,15 @@
 class Piece
 
     
-    def initialize(color, board, pos)
-        @color = color                      #symbol
-        @board = board
-        @pos = pos                             #ivar is array
+    def initialize  #(color, board, pos)
+        # @color = color                      #symbol
+        # @board = board
+        # @pos = pos                            #ivar is array
     end
 
     def pos
-        row, col = @pos
-        [row][col]
+        # row, col = @pos
+        # [row][col]
     end
 
     def to_s
@@ -25,7 +25,7 @@ class Piece
     end
 
     def pos=(val)
-        row,col = val
+        # row,col = val
 
     end
 
