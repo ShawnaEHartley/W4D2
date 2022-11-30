@@ -1,8 +1,9 @@
-require "slideable.rb"
+require_relative "slideable.rb"
 
 
 #ref board for moves ie blocked pieces/edges
 class Queen < Piece
+    include Slideable
     
 
     def symbol

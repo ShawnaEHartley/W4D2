@@ -12,10 +12,10 @@ class Board
     def initialize
         @grid = Array.new(8) {Array.new(8, nil)}
 
-        @grid[0] = [:R, :Kn, :B, :K, :Q, :B, :Kn, :R]
-        @grid[1] = [:P, :P, :P, :P, :P, :P, :P, :P]
-        @grid[6] = [:P, :P, :P, :P, :P, :P, :P, :P]
-        @grid[7] = [:R, :Kn, :B, :Q, :K, :B, :Kn, :R]
+        # @grid[0] = [:R, :Kn, :B, :K, :Q, :B, :Kn, :R]
+        # @grid[1] = [:P, :P, :P, :P, :P, :P, :P, :P]
+        # @grid[6] = [:P, :P, :P, :P, :P, :P, :P, :P]
+        # @grid[7] = [:R, :Kn, :B, :Q, :K, :B, :Kn, :R]
 
         # @grid.each_with_index do |row, idx_1|                     #black/white versions
         #     @grid.each_with_index do |ele, idx_2|
@@ -37,17 +37,17 @@ class Board
         # end
 
 
-        # (0..1).each do |idx1|
-        #     (0..7).each do |idx2|
-        #         @grid[idx1][idx2] = Piece.new
-        #     end
-        # end
+        (0..1).each do |idx1|
+            (0..7).each do |idx2|
+                @grid[idx1][idx2] = Piece.new(:W, self, [idx1, idx2])
+            end
+        end
 
-        # (6..7).each do |idx1|
-        #     (0..7).each do |idx2|
-        #         @grid[idx1][idx2] = Piece.new
-        #     end
-        # end
+        (6..7).each do |idx1|
+            (0..7).each do |idx2|
+                @grid[idx1][idx2] = :P
+            end
+        end
 
 
         # # self.set_board
