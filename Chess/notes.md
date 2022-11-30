@@ -1,6 +1,6 @@
-        zero = [:R, :K, :B, :K, :Q, :B, :K, :R]
+        zero = [:R, :Kn, :B, :K, :Q, :B, :Kn, :R]
         pawns = [:P, :P, :P, :P, :P, :P, :P, :P]
-        seven = [:R, :K, :B, :Q, :K, :B, :K, :R]
+        seven = [:R, :Kn, :B, :Q, :K, :B, :Kn, :R]
 
                 @grid.each_with_index do |row, i|
             if i == 0

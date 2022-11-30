@@ -1,4 +1,9 @@
-require "board"
+require_relative "bishop.rb"
+require_relative "king.rb"
+require_relative "knight.rb"
+require_relative "pawn.rb"
+require_relative "queen.rb"
+require_relative "rook.rb"
 
 class Piece
 
@@ -16,8 +21,8 @@ class Piece
     end
 
     def pos
-        # row, col = @pos
-        # [row][col]
+        row, col = @pos
+        [row][col]
     end
 
     def to_s
