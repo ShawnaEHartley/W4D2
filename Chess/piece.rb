@@ -29,16 +29,15 @@ class Piece
     end
 
     def empty?
-
+        # boolean if null piece
     end
     
     def valid_moves
         # this is an array of all possible move positions
     end
 
-    def pos=(val)
-        # row,col = val
-
+    def pos=(val) . #taken in array and set new coordinates
+        self.pos = val
     end
 
     def color

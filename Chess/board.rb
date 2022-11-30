@@ -45,7 +45,7 @@ class Board
 
         (6..7).each do |idx1|
             (0..7).each do |idx2|
-                @grid[idx1][idx2] = :P
+                @grid[idx1][idx2] = Piece.new(:B, self, [idx1, idx2])
             end
         end
 
