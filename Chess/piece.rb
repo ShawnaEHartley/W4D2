@@ -4,7 +4,7 @@ class Piece
 
     
     def initialize  #(color, board, pos)
-        # @color = color                      #symbol
+        @color = color                      #symbol
         @board = board
         @pos = pos                            #ivar is array
     end
