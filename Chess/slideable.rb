@@ -26,19 +26,33 @@ module Slideable
         DIAGONAL_DIRS
     end
 
-    def moves(current_pos, color) #will rerturn an Array
-        # based on the direction
-        # return an array of possible moves for that piece
+    def moves(current_pos, color)
         moves = []
-        until current_pos[0] < 0 || current_pos[0] > 7 || current_pos[1] < 0 || current_pos[1] > 7
-            HORIZONTAL_DIRS.each do |dir|
-                new_row = current_pos[0] + dir[0]
-                new_col = current_pos[1] + dir[1]
-                moves << [new_row, new_col]
+        HORIZONTAL_DIRS.each do |dir|
+            new_pos = current_pos
+            until !pos_valid?(new_pos)
+            new_pos = [(new_pos[0] + dir[0]), (new_pos[1] + dir[1])]
+            moves << new_pos
             end
         end
+
+        DIAGONAL_DIRS.each do |dir|
+            new_pos = current_pos
+            until !pos_valid?(new_pos)
+            new_pos = [(new_pos[0] + dir[0]), (new_pos[1] + dir[1])]
+            moves << new_pos
+            end
+        end
+
         return moves
     end
+
+    def pos_valid?(pos)
+        row, col = pos
+        return false if row <= 0 || row >= 7 || col <= 0 || col >= 7
+        true    
+    end
+
 
     private
     def move_dirs
