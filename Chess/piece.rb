@@ -1,10 +1,18 @@
+require "board"
+
 class Piece
 
     
     def initialize  #(color, board, pos)
         # @color = color                      #symbol
-        # @board = board
-        # @pos = pos                            #ivar is array
+        @board = board
+        @pos = pos                            #ivar is array
+    end
+
+    def moves                 # rt array of possible move coordinates
+        possible_moves = []
+        current_pos = @pos
+
     end
 
     def pos

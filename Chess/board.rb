@@ -1,3 +1,4 @@
+require "byebug"
 require_relative "piece.rb"
 
 class Board
@@ -6,6 +7,7 @@ class Board
 
     end
 
+    attr_reader :grid
 
     def initialize
         @grid = Array.new(8) {Array.new(8, nil)}
@@ -36,15 +38,13 @@ class Board
         @grid[row][col] = piece
     end
 
-    def move_piece(start_pos, end_pos)
-        if @grid[start_pos] == nil
+    def move_piece(start_pos, end_pos) 
+        if self[start_pos] == nil
             raise "no piece at this position"
         end
 
         raise "not a valid position" if !pos_valid?(end_pos)        #will amend to IF your own piece is there, etc
-
-        @grid[start_pos], @grid[end_pos] = @grid[end_pos], @grid[start_pos]
-
+        self[start_pos], self[end_pos] = self[end_pos], self[start_pos] 
     end
 
     def pos_valid?(pos)
@@ -62,5 +62,4 @@ class Board
 end
 
 # board = Board.new
-# Board.set_board
-# board.print_board
+# board.move_piece([0,0], [3,2])
